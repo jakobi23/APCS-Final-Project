@@ -22,9 +22,10 @@ public class App {
 
             FileWriter rollsWriter = new FileWriter("rolls.txt");
             rollsWriter.write("Roll " + count + ": " );
-            for(int z = 0; z < x; z++){
+            for(int z = 0; z < x - 1; z++){
                 rollsWriter.write(diceRolls[z] + ", ");
             }
+            rollsWriter.write(diceRolls[x-1] + "\n");
             rollsWriter.close();
             Scanner secondInput = new Scanner(System.in);
 
