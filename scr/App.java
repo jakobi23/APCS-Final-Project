@@ -11,9 +11,10 @@ public class App {
         FileWriter rollsWriter = new FileWriter("rolls.txt");
         Scanner input = new Scanner(System.in);
         while(keepGoing){
-            String ans;
+            int ans;
             int x;
             int y;
+            boolean tOrF = true;
             
             System.out.print("Type the number of dice rolls you want: ");
             x = input.nextInt();
@@ -32,15 +33,20 @@ public class App {
 
             System.out.print("Do you want to roll again (Y = 1/N = 0): ");
             
-            ans = input.nextLine();
-            if(ans.equals("N")){
-                keepGoing = false;
-                
-            } else if(ans.equals("Y")){
-                count = count +1;
-            } else{
-                System.out.println("An error occurred with your input");
+            ans = input.nextInt();
+            while(tOrF){
+                if(ans == 0){
+                    keepGoing = false;
+                    tOrF = false;
+                    
+                } else if(ans == 1){
+                    count = count +1;
+                    tOrF = false;
+                } else{
+                    System.out.println("An error occurred with your input");
+                }
             }
+            
         }
         input.close();
         rollsWriter.close();
